@@ -66,18 +66,40 @@
                 transform: scale(1.3);
             }
         }
+        .image-container {
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>거북이</h1>
-        <button onclick="showMessage('사랑해')">의진아</button>
-        <button onclick="showMessage('항상')">보고싶어</button>
-        <button onclick="showMessage('너는')">의진이야</button>
-        <button onclick="showMessage('그래서')">행복해</button>
-        <button onclick="showMessage('그리고')">예뻐서 고마워</button>
+        <button onclick="showMessage('의진아')">사랑해</button>
+        <button onclick="showMessage('보고싶어')">항상</button>
+        <button onclick="showMessage('의진이야')">너는</button>
+        <button onclick="showMessage('행복해')">그래서</button>
+        <button onclick="showMessage('예뻐서 고마워')">그리고</button>
+        <button onclick="showImage()">사진 보기</button>
         <div class="message" id="message"></div>
         <div class="heart" id="heart">❤️</div>
+        <div class="image-container" id="image-container">
+            <img src="https://ibb.co/tTcHHjWC" alt="의진 사진">
+        </div>
     </div>
 
     <script>
@@ -93,6 +115,15 @@
                 messageDiv.style.display = "none";
                 heartDiv.style.display = "none";
             }, 3000);
+        }
+
+        function showImage() {
+            const imageContainer = document.getElementById("image-container");
+            imageContainer.style.display = "block";
+            
+            setTimeout(() => {
+                imageContainer.style.display = "none";
+            }, 5000);
         }
     </script>
 </body>
